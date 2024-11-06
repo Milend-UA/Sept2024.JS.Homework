@@ -104,13 +104,13 @@ console.log(arr[9].password);
 // з 21 значенням виключаємо одразу
 
 let temperature = [
-    {Sunday: {Morning: 't', Afternoon: 't', Evening: 't'}},
-    {Monday: {Morning: 't', Afternoon: 't', Evening: 't'}},
-    {Tuesday: {Morning: 't', Afternoon: 't', Evening: 't'}},
-    {Wednesday: {Morning: 't', Afternoon: 't', Evening: 't'}},
-    {Thursday: {Morning: 't', Afternoon: 't', Evening: 't'}},
-    {Friday: {Morning: 't', Afternoon: 't', Evening: 't'}},
-    {Saturday: {Morning: 't', Afternoon: 't', Evening: 't'}}
+    {Sunday: {Morning: 't -10', Afternoon: 't', Evening: 't'},},
+    {Monday: {Morning: 't', Afternoon: 't', Evening: 't'},},
+    {Tuesday: {Morning: 't', Afternoon: 't', Evening: 't'},},
+    {Wednesday: {Morning: 't', Afternoon: 't', Evening: 't'},},
+    {Thursday: {Morning: 't', Afternoon: 't', Evening: 't'},},
+    {Friday: {Morning: 't', Afternoon: 't', Evening: 't'},},
+    {Saturday: {Morning: 't', Afternoon: 't', Evening: 't'},},
 ];
 
 console.log(temperature[0].Sunday.Morning);

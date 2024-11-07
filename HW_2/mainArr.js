@@ -114,4 +114,3 @@ let temperature = [
 ];
 
 console.log(temperature[0].Sunday.Morning);
-

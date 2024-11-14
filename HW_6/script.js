@@ -91,3 +91,100 @@ let coursesAndDurationArray = [
     {title: 'Frontend', monthDuration: 4}
 ];
 
+coursesAndDurationArray.sort((a, b) => b.monthDuration - a.monthDuration);
+console.log(coursesAndDurationArray);
+
+let filteredArray = coursesAndDurationArray.filter(a => a.monthDuration > 5);
+console.log(filteredArray);
+
+let transformedArray = coursesAndDurationArray.map((course, index) => ({
+    id: index + 1,
+    title: course.title,
+    monthDuration: course.monthDuration
+}));
+console.log(transformedArray);
+
+// #bolvdlhP
+// описати колоду карт (від 6 до туза без джокерів)
+
+let suits = ['spades', 'diamonds', 'hearts', 'clubs'];
+let values = ['6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'];
+let deck = [];
+for (let suit of suits) {
+    for (let value of values) {
+        deck.push(`${value} of ${suit}`);
+    }
+}
+console.log(deck);
+//  - знайти піковий туз
+let filteredDeck = deck.filter(card => card === 'ace of spades');
+console.log(filteredDeck);
+//  - всі шістки
+let sixes = deck.filter(card => card.includes('6'));
+console.log(sixes);
+//  - всі червоні карти
+let redCards = deck.filter(card => card.includes('diamonds') || card.includes('hearts'));
+console.log(redCards);
+// - всі буби
+let diamondsCards = deck.filter(card => card.includes('diamonds'));
+console.log(diamondsCards);
+//  - всі трефи від 9 та більше
+let clubsCards = deck.filter(card => card.includes('clubs') && (card.includes('9') || card.includes('10') || card.includes('jack') || card.includes('queen') || card.includes('king') || card.includes('ace')));
+console.log(clubsCards);
+
+// #EP5I1UUzAX
+//Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
+let reducedDeck = deck.reduce((accumulate, card) => {
+    let suit = card.split(' ')[2];
+    accumulate[suit].push(card);
+    return accumulate;
+}, {spades: [], diamonds: [], hearts: [], clubs: []});
+console.log(reducedDeck);
+
+// #4LJn7zBx
+// взяти з arrays.js масив coursesArray
+// --написати пошук всіх об'єктів, в яких в modules є sass
+// --написати пошук всіх об'єктів, в яких в modules є docker
+
+let coursesArray = [
+    {
+        title: 'JavaScript Complex',
+        monthDuration: 5,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+    },
+    {
+        title: 'Java Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'angular', 'aws', 'docker', 'git', 'java core', 'java advanced']
+    },
+    {
+        title: 'Python Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'angular', 'aws', 'docker', 'python core', 'python advanced']
+    },
+    {
+        title: 'QA Complex',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+    },
+    {
+        title: 'FullStack',
+        monthDuration: 7,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js', 'python', 'java']
+    },
+    {
+        title: 'Frontend',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+    }
+];
+let coursesWithSass = courses.filter(course => course.modules.includes('sass'));
+console.log(coursesWithSass);
+let coursesWithDocker = courses.filter(course => course.modules.includes('docker'));
+console.log(coursesWithDocker);

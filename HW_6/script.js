@@ -94,7 +94,7 @@ let coursesAndDurationArray = [
 coursesAndDurationArray.sort((a, b) => b.monthDuration - a.monthDuration);
 console.log(coursesAndDurationArray);
 
-let filteredArray = coursesAndDurationArray.filter(a => a.monthDuration > 5);
+let filteredArray = coursesAndDurationArray.filter(course => course.monthDuration > 5);
 console.log(filteredArray);
 
 let transformedArray = coursesAndDurationArray.map((course, index) => ({

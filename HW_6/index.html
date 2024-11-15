@@ -5,6 +5,25 @@
     <title>HW 6</title>
 </head>
 <body>
-<script src="script.js"></script>
+<!--<script src="script.js"></script>-->
+<script>
+    let str1 = 'hello world';
+    let str2 = 'lorem ipsum';
+    let str3 = 'javascript is cool';
+
+    function characterCounter(string) {
+        let count = 0;
+        for (const char of string) {
+            count++;
+        }
+        return count;
+    }
+
+    console.log(`${characterCounter(str1)}, ${characterCounter(str2)}, ${characterCounter(str3)}`);
+    // console.log(characterCounter(str1), characterCounter(str2), characterCounter(str3));
+    // console.log(characterCounter(str2));
+    // console.log(characterCounter(str3));
+
+</script>
 </body>
 </html>

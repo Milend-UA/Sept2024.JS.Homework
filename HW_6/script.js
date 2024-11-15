@@ -2,13 +2,29 @@
 // - Знайти та вивести довжину наступних стрінгових значень
 // 'hello world', 'lorem ipsum', 'javascript is cool'
 
+// let str1 = 'hello world';
+// let str2 = 'lorem ipsum';
+// let str3 = 'javascript is cool';
+//
+// console.log(str1.length);
+// console.log(str2.length);
+// console.log(str3.length);
+
 let str1 = 'hello world';
 let str2 = 'lorem ipsum';
 let str3 = 'javascript is cool';
 
-console.log(str1.length);
-console.log(str2.length);
-console.log(str3.length);
+function characterCounter(string) {
+    let count = 0;
+    for (const char of string) {
+        count++;
+    }
+    return count;
+}
+
+console.log(characterCounter(str1));
+console.log(characterCounter(str2));
+console.log(characterCounter(str3));
 
 // #8lld9HMxXWB
 // - Перевести до великого регістру наступні стрінгові значення

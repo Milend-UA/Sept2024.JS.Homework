@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW 7</title>
+</head>
+<body>
+<!--<script src="script.js"></script>-->
+<script>
+    function User(id, name, surname, email, phone) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+    }
+    let users = [];
+    for (let i = 1; i <= 10; i++) {
+        let user = new User(i, `Вася${i}`, `Пупкiн${i}`,
+            `мило${i}@гугле.com`, `${'123-456-789' + i}`);
+        users.push(user);
+    }
+    console.log(users);
+</script>
+</body>
+</html>

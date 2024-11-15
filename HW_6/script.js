@@ -22,9 +22,10 @@ function characterCounter(string) {
     return count;
 }
 
-console.log(characterCounter(str1));
-console.log(characterCounter(str2));
-console.log(characterCounter(str3));
+console.log(`${characterCounter(str1)}, ${characterCounter(str2)}, ${characterCounter(str3)}`);
+// console.log(characterCounter(str1), characterCounter(str2), characterCounter(str3));
+// console.log(characterCounter(str2));
+// console.log(characterCounter(str3));
 
 // #8lld9HMxXWB
 // - Перевести до великого регістру наступні стрінгові значення

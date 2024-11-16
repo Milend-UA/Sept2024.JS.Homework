@@ -7,28 +7,7 @@
 <body>
 <!--<script src="script.js"></script>-->
 <script>
-    function User(id, firstName, lastName, email, phone) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-    }
 
-    let users = [];
-    for (let i = 1; i <= 10; i++) {
-        let user = new User(i, `John${i}`, `Smith${i}`,
-            `john${i}@example.com`, `123-456-789 + ${i}`);
-        users.push(user);
-    }
-
-    console.log(users)
-
-    let filteredUsers = users.filter(user => user.id % 2 === 0)
-    console.log(filteredUsers);
-
-    let sortedUsers = users.sort((a,b) => a.id - b.id);
-    console.log(sortedUsers);
 </script>
 </body>
 </html>

@@ -82,8 +82,6 @@ for (const client of clients) {
     console.log(`Order: ${client.order.join(', ')}`);
     console.log(` `);
 }
-console.log(`------------------------ NEXT TASK ------------------------------`);
-console.log(` `);
 
 // #8abtVjRv
 // - Взяти масив (Client [] з попереднього завдання).Відсортувати його по кількості товарів в полі order по зростанню. (sort)

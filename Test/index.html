@@ -7,27 +7,40 @@
 <body>
 <!--<script src="script.js"></script>-->
 <script>
-    function Client(id, name, surname, email, phone, order) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phone = phone;
-        this.order = order;
-    }
-
-    let clients = [
-        new Client(1, 'Emily', 'James', 'cvvu@gmail.com', '+380967877654', ['printer', 'phone', 'fridge']),
-        new Client(2, 'Oliver', 'James', 'cvgjjvu@gmail.com', '+380967877654', ['computer', 'laptop']),
-        new Client(3, 'Jack', 'Smith', 'cvvtju@gmail.com', '+380967877657', ['hairdryer']),
-        new Client(4, 'Harry', 'Jones', 'cvjmnvu@gmail.com', '+380967877658', ['curling iron', 'phone']),
-        new Client(5, 'Jacob', 'James', 'cvvuuu@gmail.com', '+380967877654', ['kettle', 'iron', 'blender', 'mixer']),
-        new Client(6, 'Lily', 'Williams', 'cvvj@gmail.com', '+3806678797654', ['curling iron', 'phone']),
-        new Client(7, 'Sophie', 'Davies', 'ckliu@gmail.com', '+3809378774654', ['kettle', 'iron', 'blender', 'mixer', 'air conditioner', 'curling iron', 'phone']),
-        new Client(8, 'Ava', 'Wilson', 'cvvuiou@gmail.com', '+380507877656', ['kettle', 'iron', 'blender', 'mixer', 'air conditioner']),
-        new Client(9, 'Jessica', 'Evans', 'cvjjuvu@gmail.com', '+380967877653', ['printer', 'phone', 'fridge'])
+    let coursesAndDurationArray = [
+        {title: 'JavaScript Complex', monthDuration: 5},
+        {title: 'Java Complex', monthDuration: 6},
+        {title: 'Python Complex', monthDuration: 6},
+        {title: 'QA Complex', monthDuration: 4},
+        {title: 'FullStack', monthDuration: 7},
+        {title: 'Frontend', monthDuration: 4}
     ];
-console.log(clients)
+    let container = document.createElement('div');
+    container.style.display = 'flex';
+    container.style.justifyContent = 'center';
+    container.style.alignItems = 'center';
+    container.style.flexWrap = 'wrap';
+    container.style.gap = '10px';
+    // container.style.flexDirection = 'column';
+
+    for (let course of coursesAndDurationArray) {
+        let courseBlock = document.createElement('div');
+        courseBlock.style.border = '1px solid black';
+        courseBlock.style.padding = '10px';
+        courseBlock.style.marginBottom = '10px';
+        courseBlock.style.textAlign = 'center';
+        courseBlock.style.width = '300px';
+        courseBlock.style.height = '150px';
+
+        let titleElement = document.createElement('h1');
+        titleElement.textContent = course.title; // Устанавливаем текст заголовка
+        let durationElement = document.createElement('p');
+        durationElement.innerText = `Duration: ${course.monthDuration} months`;
+        courseBlock.appendChild(titleElement);
+        courseBlock.appendChild(durationElement);
+        container.appendChild(courseBlock);
+    }
+    document.body.appendChild(container);
 </script>
 </body>
 </html>

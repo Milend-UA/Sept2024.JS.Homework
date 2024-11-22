@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW 10 TASK 2</title>
+</head>
+<body>
+<script>
+  // #j693ca8
+  // - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
+  let input = document.createElement('input');
+  input.type = 'number';
+  input.id = 'ageInput';
+  input.placeholder = 'Enter your age';
+  input.style.marginRight = '10px';
+  document.body.appendChild(input);
+
+  let button = document.createElement('button');
+  button.id = 'btn';
+  button.textContent = 'Check';
+  document.body.appendChild(button);
+
+  let p = document.createElement('p');
+  p.id = 'msg';
+  document.body.appendChild(p);
+
+  button.addEventListener('click', function() {
+      let age = input.value;
+      p.textContent = (age && age > 0)
+          ? (age < 18 ? 'Too young!' : 'You’re definitely 18!')
+          : 'Please enter a valid number!';
+  });
+
+</script>
+</body>
+</html>

@@ -24,11 +24,9 @@
   p.id = 'msg';
   document.body.appendChild(p);
 
-  button.addEventListener('click', function() {
+  button.addEventListener('click', () => {
       let age = input.value;
-      p.textContent = (age && age > 0)
-          ? (age < 18 ? 'Too young!' : 'You’re definitely 18!')
-          : 'Please enter a valid number!';
+      p.textContent = (age && age > 0) ? (age < 18 ? 'Too young!' : 'You’re definitely 18!') : 'Please enter a valid number!';
   });
 
 </script>

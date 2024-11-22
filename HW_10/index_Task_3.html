@@ -5,6 +5,93 @@
     <title>HW 10 TASK 3</title>
 </head>
 <body>
+<script>
+    // Контейнер для удобства
+    const container = document.createElement('div');
+    container.style.margin = '20px';
+    container.style.display = 'flex';
+    container.style.alignItems = 'center';
+    container.style.justifyContent = 'center';
+    container.style.width = '250px';
+    container.style.height = 'auto';
+    container.style.flexDirection  = 'column';
 
+    // Создание input для Name
+    const nameInput = document.createElement('input');
+    nameInput.type = 'text';
+    nameInput.id = 'name';
+    nameInput.className = 'formInput';
+    nameInput.placeholder = 'Name';
+
+    // Создание input для Surname
+    const surnameInput = document.createElement('input');
+    surnameInput.type = 'text';
+    surnameInput.id = 'surname';
+    surnameInput.className = 'formInput';
+    surnameInput.placeholder = 'Surname';
+
+    // Создание input для Age
+    const ageInput = document.createElement('input');
+    ageInput.type = 'number';
+    ageInput.id = 'age';
+    ageInput.className = 'formInput';
+    ageInput.placeholder = 'Age';
+
+    // Добавление кнопки
+    const button = document.createElement('button');
+    button.id = 'button';
+    button.textContent = 'Submit';
+
+    const output = document.createElement('div');
+    output.id = 'output';
+
+    container.append(nameInput, surnameInput, ageInput, button, output);
+    document.body.appendChild(container);
+
+    // Получаем все элементы с классом formInput
+    const inputs = document.querySelectorAll('.formInput');
+    inputs.forEach(input => {
+        input.style.marginBottom = '30px';
+        input.style.padding = '5px';
+        input.style.border = '1px solid black';
+        input.style.borderRadius = '5px';
+    });
+
+    // Обработчик клика
+    button.onclick = () => {
+        // Считывание данных внутри обработчика
+        let firstName = nameInput.value;
+        let lastName = surnameInput.value;
+        let userAge = ageInput.value;
+
+        if (!firstName || !lastName || !userAge) {
+            output.textContent = 'All fields must be filled!';
+            output.style.color = 'red';
+            output.style.marginTop = '20px';
+            return;
+        }
+
+        if (userAge <= 0) {
+            output.textContent = `${firstName} ${lastName}, age must be greater than 0!`;
+            return;
+        }
+
+        // Создание объекта с данными
+        const userData = {
+            name: firstName,
+            surname: lastName,
+            age: userAge
+        };
+
+        // Показать объект в документе
+        output.innerHTML = `
+            <ul style="c">
+                <li>Name: ${userData.name}</li>
+                <li>Surname: ${userData.surname}</li>
+                <li>Age: ${userData.age}</li>
+            </ul>
+        `;
+    };
+</script>
 </body>
 </html>

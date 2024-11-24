@@ -15,11 +15,7 @@
         arr.push(objToAdd);
         localStorage.setItem(arrayName, JSON.stringify(arr));
     }
-
-    // Добавляем объект в локальное хранилище
     addToLocalStorage('myArray', {name: 'John', age: 30});
-
-    // Получаем и выводим массив из localStorage
     console.log(JSON.parse(localStorage.getItem('myArray')));
 </script>
 </body>

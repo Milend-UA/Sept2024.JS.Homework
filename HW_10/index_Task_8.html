@@ -2,14 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 8</title>
+  <title>Title</title>
 </head>
-<!--#kUSgFqWY-->
-<!--Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.-->
-<!--При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.-->
 <body>
-<h1>Table</h1>
 <label for="numRows">Number of rows: </label><br>
 <input type="number" id="numRows"><br><br>
 
@@ -19,40 +14,40 @@
 <label for="cellContent">Cell content: </label><br>
 <input type="text" id="cellContent"><br><br>
 
-<button onclick="createTable()">Create Table</button><br><br>
+<button id="button">Create Table</button><br><br>
 
 <div id="tableContainer"></div>
 
+
 <script>
+  let button = document.getElementById('button');
+  button.addEventListener('click', createTable);
   function createTable() {
     let numRows = document.getElementById('numRows').value;
     let numCells = document.getElementById('numCells').value;
     let cellContent = document.getElementById('cellContent').value;
-    numRows = numRows * 1;
-    numCells = numCells * 1;
+    if(numRows > 0 && numCells > 0 && cellContent.length > 0) {
+      let table = document.createElement('table');
+      table.style.borderSpacing = '0';
+      for (let i = 0; i < numRows; i++) {
+        let tr = document.createElement('tr');
 
-    let tableContainer = document.getElementById('tableContainer');
-
-    tableContainer.innerText = '';
-
-    let table = document.createElement('table');
-    table.style.borderSpacing = '0';
-
-    for (let i = 0; i < numRows; i++) {
-      let row = document.createElement('tr');
-
-      for (let j = 0; j < numCells; j++) {
-        let cell = document.createElement('td');
-        cell.textContent = cellContent;
-        cell.style.border = '1px solid black';
-        cell.style.padding = '8px';
-        row.appendChild(cell);
+        for (let j = 0; j < numCells; j++) {
+          let td = document.createElement('td');
+          td.textContent = cellContent;
+          td.style.border = '1px solid black';
+          td.style.padding = '8px';
+          td.textContent = cellContent;
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
       }
-
-      table.appendChild(row);
+      document.getElementById('tableContainer').appendChild(table);
+    } else {
+      alert('Please make sure all fields are filled correctly!');
     }
-    tableContainer.appendChild(table);
   }
 </script>
 </body>
 </html>
+

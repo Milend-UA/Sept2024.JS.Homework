@@ -5,18 +5,49 @@
     <title>Title</title>
 </head>
 <body>
+<label for="numRows">Number of rows: </label><br>
+<input type="number" id="numRows"><br><br>
+
+<label for="numCells">Number of cells per row: </label><br>
+<input type="number" id="numCells"><br><br>
+
+<label for="cellContent">Cell content: </label><br>
+<input type="text" id="cellContent"><br><br>
+
+<button id="button">Create Table</button><br><br>
+
+<div id="tableContainer"></div>
+
+
 <script>
-    let addToLocalStorage = (arrayName, objToAdd) => {
-        let arr = JSON.parse(localStorage.getItem(arrayName)) || [];
-        arr.push(objToAdd);
-        localStorage.setItem(arrayName, JSON.stringify(arr));
+    let button = document.getElementById('button');
+    button.addEventListener('click', createTable);
+    function createTable() {
+        let numRows = document.getElementById('numRows').value;
+        let numCells = document.getElementById('numCells').value;
+        let cellContent = document.getElementById('cellContent').value;
+        if(numRows > 0 && numCells > 0 && cellContent.length > 0) {
+            let table = document.createElement('table');
+            table.style.borderSpacing = '0';
+            for (let i = 0; i < numRows; i++) {
+                let tr = document.createElement('tr');
+
+                for (let j = 0; j < numCells; j++) {
+                    let td = document.createElement('td');
+                    td.textContent = cellContent;
+                    td.style.border = '1px solid black';
+                    td.style.padding = '8px';
+                    td.textContent = cellContent;
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+            document.getElementById('tableContainer').appendChild(table);
+        } else {
+            alert('Please make sure all fields are filled correctly!');
+        }
     }
-
-    // Добавляем объект в локальное хранилище
-    addToLocalStorage('myArray', {name: 'John', age: 30});
-
-    // Получаем и выводим массив из localStorage
-    console.log(JSON.parse(localStorage.getItem('myArray')));
 </script>
 </body>
 </html>
+

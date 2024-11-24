@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HW 10 TASK 4</title>
+    <title>Task 4</title>
 </head>
 <body>
-
+<div id="counterDisplay">0</div>
 </body>
+<script>
+    // #2VaLt4vDczH
+    // є сторінка, на якій є блок, я кому знаходиться цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
+
+    let counter = localStorage.getItem('myCounterValue');
+    counter = counter ? 0 : counter * 1;
+    counter++;
+    localStorage.setItem('myCounterValue', counter);
+    document.getElementById('counterDisplay').textContent = counter;
+</script>
 </html>

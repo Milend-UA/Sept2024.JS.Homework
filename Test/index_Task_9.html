@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 9</title>
+  <style>
+    #pagination {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<div id="dataContainer"></div>
+
+<div id="pagination">
+  <button id="prevBtn">Prev</button>
+  <button id="nextBtn">Next</button>
+</div>
+
+<script>
+
+  let data = [];
+  for (let i = 1; i <= 100; i++) {
+    data.push({ id: i, name: `Item ${i}` });
+  }
+
+  let currentPage = 0;
+
+  const itemsPerPage = 10;
+
+  // Функция для отображения данных на текущей странице
+  function displayData() {
+    const start = currentPage * itemsPerPage;
+    const end = start + itemsPerPage;
+    const currentData = data.slice(start, end);
+
+    const container = document.getElementById('dataContainer');
+    container.innerHTML = ''; // Очищаем контейнер
+
+    currentData.forEach(item => {
+      const div = document.createElement('div');
+      div.textContent = `${item.id}. ${item.name}`;
+      container.appendChild(div);
+    });
+  }
+
+  // Функция для обработки кнопки "Next"
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    if (currentPage < data.length / itemsPerPage - 1) {
+      currentPage++;
+      displayData();
+    }
+  });
+
+  // Функция для обработки кнопки "Prev"
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    if (currentPage > 0) {
+      currentPage--;
+      displayData();
+    }
+  });
+
+  // Изначально загружаем первые 10 объектов
+  displayData();
+</script>
+</body>
+</html>
